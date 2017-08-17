@@ -115,6 +115,9 @@ PRODUCT_COPY_FILES += \
     vendor/legion/prebuilt/google/lib/libsketchology_native.so:system/product/lib/libsketchology_native.so \
     vendor/legion/prebuilt/google/lib64/libsketchology_native.so:system/product/lib64/libsketchology_native.so
 
+# Disable vendor restrictions
+PRODUCT_RESTRICT_VENDOR_FILES := false
+
 # Backup Tool
 PRODUCT_COPY_FILES += \
     vendor/legion/prebuilt/common/addon.d/50-legion.sh:system/addon.d/50-legion.sh \
