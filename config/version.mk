@@ -18,6 +18,13 @@ ifndef LEGION_BUILD_TYPE
     LEGION_BUILD_TYPE := UNOFFICIAL
 endif
 
+ifndef LEGION_MAINTAINER
+    LEGION_MAINTAINER := None
+endif
+
+ifndef CPU_MODEL
+    CPU_MODEL := random_625
+endif
 CURRENT_DEVICE=$(shell echo "$(TARGET_PRODUCT)" | cut -d'_' -f 2,3)
 
 ifeq ($(LEGION_OFFICIAL),true)
@@ -42,4 +49,6 @@ com.legion.fingerpring=$(LEGION_FINGERPRINT) \
 ro.legion.version=$(LEGION_VERSION) \
 ro.legion.display.version=$(LEGION_DISPLAY_VERSION) \
 ro.legion.releasetype=$(LEGION_BUILD_TYPE) \
-ro.modversion=$(TARGET_BACON_NAME)
+ro.modversion=$(TARGET_BACON_NAME) \
+ro.legion.maintainer = $(LEGION_MAINTAINER) \
+ro.processor.model=$(CPU_MODEL)

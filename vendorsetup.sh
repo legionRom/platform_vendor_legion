@@ -1,1 +1,1 @@
-add_lunch_combo legion_$device-userdebug
+add_lunch_combo legion_$devices-userdebug
