@@ -20,7 +20,9 @@ PRODUCT_PACKAGES += \
     Launcher3 \
     LiveWallpapers \
     LiveWallpapersPicker \
-    messaging \
+    GMessaging \
+    GDialer \
+    GContacts \
     SubstratumSignature \
     WellbeingPrebuilt \
     OmniStyle \
@@ -44,7 +46,6 @@ PRODUCT_PACKAGES += \
     ExactCalculator \
     LatinIME \
     Launcher3QuickStep \
-    messaging \
     Stk
 
  # Extra tools
