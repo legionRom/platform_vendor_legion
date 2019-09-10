@@ -17,9 +17,15 @@
     <string name="config_wallpaper_picker_package" translatable="false">com.android.wallpaper</string>
     <string name="config_wallpaper_picker_class" translatable="false">com.android.customization.picker.CustomizationPickerActivity</string>
 
-    <!-- Fully-qualified class name for the styles & wallpaper picker activity. -->
-    <string name="config_styles_and_wallpaper_picker_class">com.android.customization.picker.CustomizationPickerActivity</string>
-
     <!-- Whether system_update_settings should be shown or not. -->
     <bool name="config_show_system_update_settings">false</bool>
+
+    <string name="config_styles_and_wallpaper_picker_class" translatable="false">com.android.customization.picker.CustomizationPickerActivity</string>
+
+    <!-- Emergency app package name -->
+    <string name="config_emergency_package_name">com.google.android.apps.safetyhub</string>
+
+    <!-- Emergency app intent action -->
+    <string name="config_emergency_intent_action">com.google.android.safetyhub.SAFETY_HUB</string>
+
 </resources>

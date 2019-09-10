@@ -144,6 +144,7 @@ PRODUCT_PACKAGES += \
     GalleryGoPrebuilt \
     MarkupGoogle \
     SoundPickerPrebuilt \
+    SafetyHubPrebuilt \
     Lawnchair \
     PixelThemes
 
