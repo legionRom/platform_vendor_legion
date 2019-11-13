@@ -12,9 +12,9 @@
 # See the License for the specific language governing permissions and
 # limitations under the License.
 
-ifneq ($(filter legion_oneplus3 legion_santoni legion_dumpling legion_cheeseburger legion_taimen legion_potter legion_X00TD,$(TARGET_PRODUCT)),)
+ifneq ($(filter legion_rimo02a legion_sanders legion_vince,$(TARGET_PRODUCT)),)
 
 PRODUCT_PACKAGES += \
-    Updates
+    Updater
 
 endif
