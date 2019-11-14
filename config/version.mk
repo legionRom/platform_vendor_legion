@@ -1,4 +1,4 @@
-# Copyright (C) 2018 LegionOS Project
+# Copyright (C) 2016-2019 LEGION
 #
 # Licensed under the Apache License, Version 2.0 (the "License");
 # you may not use this file except in compliance with the License.
@@ -12,28 +12,25 @@
 # See the License for the specific language governing permissions and
 # limitations under the License.
 
-LEGION_VERSION := v2.3
+# Versioning System
+BUILD_DATE := $(shell date +%Y%m%d)
+TARGET_PRODUCT_SHORT := $(subst legion_,,$(LEGION_BUILDTYPE))
 
-# LEGION RELEASE VERSION
-ifndef LEGION_BUILD_TYPE
-    LEGION_BUILD_TYPE := Unofficial
+LEGION_BUILDTYPE ?= stable
+LEGION_BUILD_VERSION := 10
+LEGION_VERSION := $(LEGION_BUILD_VERSION)-$(LEGION_BUILDTYPE)-$(LEGION_BUILD)-$(BUILD_DATE)
+ROM_FINGERPRINT := Legion/$(PLATFORM_VERSION)/$(TARGET_PRODUCT_SHORT)/$(shell date -u +%H%M)
+
+PRODUCT_SYSTEM_DEFAULT_PROPERTIES += \
+  ro.legion.build.version=$(LEGION_BUILD_VERSION) \
+  ro.legion.build.date=$(BUILD_DATE) \
+  ro.legion.buildtype=$(LEGION_BUILDTYPE) \
+  ro.legion.fingerprint=$(ROM_FINGERPRINT) \
+  ro.legion.version=$(LEGION_VERSION) \
+  ro.legion.device=$(LEGION_BUILD) \
+  ro.modversion=$(LEGION_VERSION)
+
+ifneq ($(OVERRIDE_OTA_CHANNEL),)
+    PRODUCT_PROPERTY_OVERRIDES += \
+        legion.updater.uri=$(OVERRIDE_OTA_CHANNEL)
 endif
-
-CURRENT_DEVICE=$(shell echo "$(TARGET_PRODUCT)" | cut -d'_' -f 2,3)
-
-ifeq ($(LEGION_OFFICIAL),true)
-   LIST = $(shell curl -s https://raw.githubusercontent.com/legionRom/platform_vendor_legion/pie/legion.devices)
-   FOUND_DEVICE = $(filter $(CURRENT_DEVICE), $(LIST))
-    ifeq ($(FOUND_DEVICE),$(CURRENT_DEVICE))
-      IS_OFFICIAL=true
-      LEGION_BUILD_TYPE := OFFICIAL
-    else
-      LEGION_BUILD_TYPE := UNOFFICIAL
-    endif
-endif
-
-LEGION_DATE := $(shell date -u +%Y%m%d-%H%M)
-
-LEGION_FINGERPRINT := LEGIONOS/$|(LEGION_VERSION)/$(PLATFORM_VERSION)/$(BUILD_ID)/$(LEGION_DATE) 
-
-LEGION_BUILD_VERSION := LEGIONOS-$(LEGION_VERSION)-$(CURRENT_DEVICE)-$(LEGION_BUILD_TYPE)-$(LEGION_DATE)

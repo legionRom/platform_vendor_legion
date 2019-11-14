@@ -14,10 +14,9 @@
 
 # Generic product
 PRODUCT_NAME := legion
-PRODUCT_BRAND := legion
+PRODUCT_BRAND := LEGION
 PRODUCT_DEVICE := generic
 
-LEGION_BUILD_DATE := $(shell date -u +%Y%m%d-%H%M)
 
 EXCLUDE_SYSTEMUI_TESTS := true
 
@@ -46,8 +45,6 @@ PRODUCT_SYSTEM_DEFAULT_PROPERTIES += \
     persist.sys.disable_rescue=true \
     ro.config.calibration_cad=/system/etc/calibration_cad.xml
 
-PRODUCT_SYSTEM_DEFAULT_PROPERTIES += \
-    org.legion.fingerprint=$(PLATFORM_VERSION)-$(BUILD_ID)-$(LEGION_BUILD_DATE)
 
 PRODUCT_DEFAULT_PROPERTY_OVERRIDES := \
     ro.adb.secure=0 \
@@ -94,7 +91,8 @@ PRODUCT_PACKAGES += \
     Launcher3 \
     messaging \
     Stk \
-    Terminal
+    Terminal \
+    Updater
 
 # Init.d script support
 PRODUCT_COPY_FILES += \
@@ -112,6 +110,18 @@ PRODUCT_COPY_FILES += \
     vendor/legion/prebuilt/common/bin/backuptool.sh:install/bin/backuptool.sh \
     vendor/legion/prebuilt/common/bin/backuptool.functions:install/bin/backuptool.functions \
     vendor/legion/prebuilt/common/bin/system-mount.sh:install/bin/system-mount.sh
+
+ifeq ($(AB_OTA_UPDATER),true)
+PRODUCT_COPY_FILES += \
+    vendor/legion/prebuilt/common/bin/backuptool_ab.sh:system/bin/backuptool_ab.sh \
+    vendor/legion/prebuilt/common/bin/backuptool_ab.functions:system/bin/backuptool_ab.functions \
+    vendor/legion/prebuilt/common/bin/backuptool_postinstall.sh:system/bin/backuptool_postinstall.sh
+endif
+
+# Gapps
+ifeq ($(WITH_GAPPS),true)
+include vendor/gapps/config.mk
+endif
 
 # Priv-app config
 PRODUCT_COPY_FILES += \
