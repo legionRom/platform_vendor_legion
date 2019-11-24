@@ -142,8 +142,10 @@ PRODUCT_PACKAGES += \
     ThemePicker
 
 # OTA
+ifeq ($(LEGION_BUILD_TYPE), OFFICIAL)
 PRODUCT_PACKAGES += \
     Updater
+endif
 
 # Accents
 PRODUCT_PACKAGES += \
@@ -179,4 +181,5 @@ PRODUCT_COPY_FILES += \
 # Gapps
 -include vendor/legion/gapps.mk
 
-
+# OTA
+include vendor/legion//ota.mk
