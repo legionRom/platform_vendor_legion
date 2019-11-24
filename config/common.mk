@@ -172,4 +172,11 @@ PRODUCT_COPY_FILES += \
     vendor/legion/prebuilt/fonts/Surfer/Surfer.ttf:$(TARGET_COPY_OUT_SYSTEM)/fonts/Surfer.ttf
 
 # Inclusion of legion specific files
+
+# Branding
 -include vendor/legion/config/version.mk
+
+# Gapps
+-include vendor/legion/gapps.mk
+
+
