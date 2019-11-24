@@ -138,6 +138,10 @@ PRODUCT_PACKAGES += \
 PRODUCT_PACKAGES += \
     ThemePicker
 
+# OTA
+PRODUCT_PACKAGES += \
+    Updater
+
 # Accents
 PRODUCT_PACKAGES += \
     AccentColorYellowOverlay \
