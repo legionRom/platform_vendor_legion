@@ -180,8 +180,9 @@ PRODUCT_COPY_FILES += \
     vendor/legion/prebuilt/fonts/Rosemary/Rosemary-Regular.ttf:$(TARGET_COPY_OUT_SYSTEM)/fonts/Rosemary-Regular.ttf \
     vendor/legion/prebuilt/fonts/SonySketch/SonySketch.ttf:$(TARGET_COPY_OUT_SYSTEM)/fonts/SonySketch.ttf \
     vendor/legion/prebuilt/fonts/Surfer/Surfer.ttf:$(TARGET_COPY_OUT_SYSTEM)/fonts/Surfer.ttf \
-    vendor/legion/prebuilt/fonts/SlateFromOnePlus/SlateFromOP-Light.ttf:$(TARGET_COPY_OUT_SYSTEM)/fonts/SlateFromOP-Light.ttf \
-    vendor/legion/prebuilt/fonts/SlateFromOnePlus/SlateFromOP-Regular.ttf:$(TARGET_COPY_OUT_SYSTEM)/fonts/SlateFromOP-Regular.ttf
+    vendor/legion/prebuilt/fonts/SlateFromOP-Light.ttf:$(TARGET_COPY_OUT_SYSTEM)/fonts/SlateFromOP-Light.ttf \
+    vendor/legion/prebuilt/fonts/SlateFromOP-Regular.ttf:$(TARGET_COPY_OUT_SYSTEM)/fonts/SlateFromOP-Regular.ttf \
+    vendor/legion/prebuilt/fonts/SamsungOne.ttf:$(TARGET_COPY_OUT_SYSTEM)/fonts/SamsungOne.ttf
 
 
 # Lawnchair
@@ -204,3 +205,4 @@ USE_CCACHE := true
 # Integrates package for easier Google Pay fixing
 PRODUCT_PACKAGES += \
     sqlite3
+
