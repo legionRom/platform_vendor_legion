@@ -145,6 +145,7 @@ PRODUCT_PACKAGES += \
     MarkupGoogle \
     SoundPickerPrebuilt \
     SafetyHubPrebuilt \
+    PixelThemesStub2019 \
     Lawnchair \
     PixelThemes
 
