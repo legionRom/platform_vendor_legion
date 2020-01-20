@@ -202,3 +202,5 @@ USE_CCACHE := true
 # Integrates package for easier Google Pay fixing
 PRODUCT_PACKAGES += \
     sqlite3
+
+include vendor/legion/themes/backgrounds/themes.mk
